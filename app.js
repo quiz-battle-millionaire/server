@@ -55,6 +55,7 @@ io.on('connection', (socket) => {
         )
       }
       io.emit('winner',nameWin)
+      players = []
       console.log(nameWin)
     })
 })
