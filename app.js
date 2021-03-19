@@ -12,10 +12,11 @@ io.on('connection', (socket) => {
     console.log('a user connected');
 
     // Listen trigerred event
-    socket.on('setName', (data) => {
+    socket.on('setPlayer', (data) => {
         console.log(data, 'ini dari client');
         //Broadcast
-        io.emit('showAll', data)
+        io.emit('player', data)
+        // socket.broadcast.emit('player', data)
     })
 })
 
