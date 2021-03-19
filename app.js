@@ -15,27 +15,27 @@ io.on('connection', (socket) => {
 
     // Listen trigerred event
     socket.on('setPlayer', (data) => {
-        console.log(data, 'ini dari client');
+        // console.log(data, 'ini dari client');
         //Broadcast
         players.push(data)
         io.emit('player', players)
-        console.log(players)
+        // console.log(players)
         // socket.broadcast.emit('player', data)
     })
     socket.on('logout',(data)=>{
-      console.log(data,'logout')
+      // console.log(data,'logout')
       players=players.filter(player=>player.name!==data)
-      console.log(players,'baru')
+      // console.log(players,'baru')
       io.emit('player', players)
     })
     socket.on('setScore',(name,score)=>{
-      console.log(name,score,'setScore')
+      // console.log(name,score,'setScore')
       players.forEach((player)=>{
         if(player.name===name){
           player.score+=score
         }
       })
-      console.log(players,'setScore')
+      // console.log(players,'setScore')
       io.emit('player',players)
     })
     socket.on('setWin',(data)=>{
@@ -56,7 +56,7 @@ io.on('connection', (socket) => {
       }
       io.emit('winner',nameWin)
       players = []
-      console.log(nameWin)
+      // console.log(nameWin)
     })
 })
 
